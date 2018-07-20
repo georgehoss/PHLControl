@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">PHL Control</string>
+    <string name="tecnologia">www.phl.com.ve\n Tecnologia PHL © 2017</string>
+    <string name="numcentral">Número Central</string>
+    <string name="Guardar">Guardar</string>
+    <string name="noguardar">No</string>
+    <string name="preguntacambios">¿Desea Guardar los cambios?</string>
+    <string name="Btnguardar">Guardar</string>
+    <string name="informacion0">PHL Control</string>
+    <string name="informacion1">Esta aplicación esta diseñada como un complemento de la Micro Llave GSM y SmartKey-VE, son dispositivos que te premiten abrir portones o puertas eléctricas con tu teléfono celular.</string>
+    <string name="informacion2">Instrucciones:</string>
+    <string name="informacion3">1- Configure el número de teléfono que posee la Llave GSM a través del menú de configuraciones.</string>
+    <string name="informacion4">2- Para accionar la apertura su número de telefono debe estar registrado en la Llave GSM instalada en su sistema. Existen dos metodos de apertura: El Boton de llamada, maraca direcamenta al número de la Llave GSM. El Boton principal, envía un mensaje de texto al sistema indicando que realice la apertura (El mensaje se descuenta de su saldo o plan actual)</string>
+    <string name="informacion5">3- Incluye dos mecanismos de seguridad, para más informacion acerca de los mismos debe consultar con el administrador del sistema.</string>
+    <string name="informacion6">La Micro Llave GSM, SmartKey-VE y el PHL Control se desarrollan en Venezuela por Tecnología PHL, C.A. J-408007592. Cualquier duda o sugerencia puede escribir a través del correo electrónico tecnologiaphl.ve@gmail.com o por cualquiera de los siguientes medios: </string>
+    <string name="numcentralcf">Número Central 1:</string>
+    <string name="introducenum">Introduce el número</string>
+    <string name="botonabrirpormsj">Boton abrir por mensaje de texto</string>
+    <string name="btnconfig">Boton Configuración</string>
+    <string name="btncallopen">Boton de Apertura por llamada</string>
+    <string name="btnstkve">Acerca de SmartKey-VE</string>
+    <string name="AcercaDE">Acerca De</string>
+    <string name="Informacion7">www.phl.com.ve</string>
+    <string name="Informacion8">Correo: tecnologiaphl.ve@gmail.com</string>
+    <string name="no_configurado">No Configurado</string>
+    <string name="anti_secuestro">Anti-Secuestro</string>
+    <string name="apertura_secundaria">Apertura Secundaria</string>
+    <string name="apertura_principal">Apertura Principal</string>
+    <string name="apertura_por_llamada">Apertura por Llamada</string>
+    <string name="tecla_volumen_bajo">Tecla Volumen Bajo:</string>
+    <string name="tecla_volumen_alto">Tecla Volumen Alto:</string>
+    <string name="Aceptar">Aceptar</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="Alarma">¿Desea Activar la Alarma de la Llave GSM?</string>
+    <string name="AntiSecuestro">¿Desea Activar la Alarma por Apertura Involuntaria?</string>
+    <string name="teclavolumenbajo">Cancelar</string>
+    <string name="link">www.phl.com.ve</string>
+
+
+</resources>

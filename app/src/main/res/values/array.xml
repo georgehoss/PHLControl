@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="volume">
+        <item>Apertura por Llamada</item>
+        <item>Apertura Principal</item>
+        <item>Apertura Secundaria</item>
+        <item>Alarma</item>
+        <item>Anti-Secuestro</item>
+        <item>No Configurar</item>
+    </string-array>
+    <string-array name="nomostrar">
+        <item>No Volver A Mostrar Este Mensaje</item>
+    </string-array>
+</resources>

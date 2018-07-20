@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ve.first.phl.com.phlcontrol.registro"
+    android:background="@drawable/background2"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/negro"
+            android:shadowRadius="3"
+            android:text="Configuración de la Llave GSM"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/ColorYellow"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="5dp"
+            android:background="#ccc" />
+
+        <LinearLayout
+            android:id="@+id/Ll1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+
+            <EditText
+                android:id="@+id/etnumcentral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Introduce el Número de la Llave GSM"
+                android:maxLength="20"
+                android:numeric="integer"
+                android:shadowColor="@color/negro"
+                android:shadowRadius="2"
+                android:textColor="@color/blanco"
+                android:textColorHint="@color/blanco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Ll11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Ll1"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/etnombrecentral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Agrega un Nombre a la Llave GSM"
+                android:maxLength="15"
+                android:shadowColor="@color/negro"
+                android:shadowRadius="2"
+                android:textColor="@color/blanco"
+                android:textColorHint="@color/blanco" />
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+
+
+            <Button
+                android:id="@+id/btguardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:background="@drawable/boton_amarillo"
+                android:text="Continuar" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
