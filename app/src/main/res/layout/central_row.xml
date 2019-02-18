@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:orientation="vertical"
+            >
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/phl_logo"
+                            android:id="@+id/iv_logo"
+                            tools:ignore="ContentDescription" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorPrimaryLight"
+                                android:id="@+id/tv_title"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:id="@+id/tv_number"
+                                />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/bt_list"
+                            android:text="@string/cambiar"
+                            android:theme="@style/AppTheme.Button"
+                            android:drawableLeft="@drawable/list_user"
+                            tools:ignore="ButtonStyle" />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/bt_edit"
+                            android:drawableLeft="@drawable/edit_user"
+                            android:text="@string/editar"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/bt_add"
+                            android:drawableLeft="@drawable/new_user"
+                            android:text="@string/nuevo"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    >
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bt_call"
+                        android:drawableLeft="@drawable/callphone"
+                        android:drawablePadding="10dp"
+                        android:padding="20dp"
+                        android:text="@string/llamar"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:theme="@style/AppTheme.Button"
+                        tools:ignore="ButtonStyle" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/presione_para_activar"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"
+                        />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:id="@+id/bt_principal"
+                        android:drawableLeft="@drawable/garage_open"
+                        android:drawablePadding="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:padding="20dp"
+                        android:layout_gravity="right"
+                        android:text="@string/principal"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bt_second"
+                        android:drawableLeft="@drawable/remotewh"
+                        android:drawablePadding="10dp"
+                        android:padding="20dp"
+                        android:text="@string/secundario"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        />
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+</ScrollView>

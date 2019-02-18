@@ -3,34 +3,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Actividad_Principal" >
+    tools:context=".MainActivity" >
+
     <item
-        android:id="@+id/config"
-        android:title="Configuración"
-        android:icon="@drawable/setting"
+        android:id="@+id/nuevo"
+        android:title="@string/agregar"
+        android:icon="@drawable/addcontact"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        />
+
     <item
         android:id="@+id/alarma"
-        android:title="Boton de Pánico"
+        android:title="@string/boton_de_p_nico"
         android:orderInCategory="100"
         app:showAsAction="never"
         />
-    <item
-        android:id="@+id/apertura"
-        android:title="Apertura Involuntaria"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        />
-    <item
-        android:id="@+id/instrucciones"
-        android:title="Instrucciones de Uso"
-        android:orderInCategory="100"
-        app:showAsAction="never"
-        />
+
     <item
         android:id="@+id/Calificar"
-        android:title="Calificar Aplicación"
+        android:title="@string/calificar_aplicaci_n"
         android:orderInCategory="100"
         app:showAsAction="never"
         />

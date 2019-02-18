@@ -1,151 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ve.first.phl.com.phlcontrol.Actividad_Principal"
+    tools:context="ve.first.phl.com.phlcontrol.MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/backgroundm"
     >
-
-<LinearLayout
+<FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    >
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/spinner"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:background="@drawable/background"
-        android:padding="10dp"
-        >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Encender/Apagar Salida Secundaria"
-            android:textColor="@color/colorAccent"
-            android:shadowColor="@color/negro"
-            android:shadowRadius="1"
-            />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorAccent"
-            android:layout_marginBottom="10dp"
-            />
-
-        <LinearLayout
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:background="@drawable/circle_yellow"
-            android:gravity="center"
-            android:id="@+id/PuertaBot"
-            >
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center"
-                android:src="@drawable/light_bulb"
-                />
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Encender/Apagar Salida Principal"
-            android:textColor="@color/colorAccent"
-            android:shadowColor="@color/negro"
-            android:shadowRadius="1"
-            android:layout_marginTop="10dp"
-            />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorAccent"
-            android:layout_marginBottom="10dp"
-            />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            >
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@drawable/circle_yellow"
-                android:gravity="center"
-                android:id="@+id/OpenBot"
-                >
-                <ImageView
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/onoff"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:background="@drawable/circle_yellow"
-                android:gravity="center"
-                android:id="@+id/callBot"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                >
-                <ImageView
-                    android:layout_width="60dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/phone"
-                    />
-
-            </LinearLayout>
-
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tecnologia"
-        android:layout_gravity="center_horizontal"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/textView"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:textColor="@color/negro"
-        />
 
 </LinearLayout>
-
-
-
-</ScrollView>
