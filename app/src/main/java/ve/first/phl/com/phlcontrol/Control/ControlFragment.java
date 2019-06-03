@@ -129,8 +129,11 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
 
     @Override
     public void onOpen(Central central) {
-        if (central.getTimebt1()!=null && !central.getTimebt1().isEmpty())
+
+        abrirPrincipal();
+        /*if (central.getTimebt1()!=null && !central.getTimebt1().isEmpty())
         {
+
             if (Utils.isUpToDate(getActivity(),central.getTimebt1(),5))
                 abrirPrincipal();
             else
@@ -138,19 +141,26 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
         }
         else
             abrirPrincipal();
+                            */
+
     }
 
     @Override
     public void onOpen2(Central central) {
+        abrirSecundario();
+            /*
         if (central.getTimebt2()!=null && !central.getTimebt2().isEmpty())
         {
+
             if (Utils.isUpToDate(getActivity(),central.getTimebt2(),5))
                 abrirSecundario();
             else
                 Toast.makeText(getActivity(), "Espere 5 segundos para volver activar.", Toast.LENGTH_SHORT).show();
-        }
+              }
         else
             abrirSecundario();
+              */
+
 
     }
 
@@ -174,30 +184,24 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
 
     private void abrirPrincipal(){
         main.abrirPrincipal(getCentral().getNumero());
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                Central central = getCentral();
-                central.setTimebt1(Utils.getDateString());
-                realm.copyToRealmOrUpdate(central);
-               // mCentrals = realm.where(Central.class).findAll();
-            }
+        realm.executeTransaction(realm -> {
+            Central central = getCentral();
+            central.setTimebt1(Utils.getDateString());
+            realm.copyToRealmOrUpdate(central);
+           // mCentrals = realm.where(Central.class).findAll();
         });
-        Toast.makeText(main, "Activando 1: "+getCentral().getNombre()+". Por favor espere 5 segundos..", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(main, "Activando 1: "+getCentral().getNombre()+". Por favor espere 5 segundos..", Toast.LENGTH_SHORT).show();
     }
 
     private void abrirSecundario(){
         main.abrirSecundario(getCentral().getNumero());
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                Central central = getCentral();
-                central.setTimebt2(Utils.getDateString());
-                realm.copyToRealmOrUpdate(central);
-               // mCentrals = realm.where(Central.class).findAll();
-            }
+        realm.executeTransaction(realm -> {
+            Central central = getCentral();
+            central.setTimebt2(Utils.getDateString());
+            realm.copyToRealmOrUpdate(central);
+           // mCentrals = realm.where(Central.class).findAll();
         });
-        Toast.makeText(main, "Activando 2: "+getCentral().getNombre()+". Por favor espere 5 segundos..", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(main, "Activando 2: "+getCentral().getNombre()+". Por favor espere 5 segundos..", Toast.LENGTH_SHORT).show();
     }
 
     private Central getCentral(){
@@ -211,20 +215,14 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("¿Desea activar la Alarma de la Llave GSM: "+ central.getNombre()+ "?");
-        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                realm.beginTransaction();
-                central.setBtalarm(true);
-                realm.commitTransaction();
-                main.activateAlarm(central.getNumero());
-            }
+        builder.setPositiveButton("Aceptar", (dialog, which) -> {
+            realm.beginTransaction();
+            central.setBtalarm(true);
+            realm.commitTransaction();
+            main.activateAlarm(central.getNumero());
         });
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+        builder.setNegativeButton("Cancelar", (dialog, which) -> {
 
-            }
         });
         builder.setMessage("El modo Alarma debe estar previamente configurado en la Llave GSM para activar la alarma correctamente!");
         return builder.create();
@@ -234,20 +232,14 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("¿Desea activar la Apertura con Alarma de la Llave GSM: "+ central.getNombre()+"?");
-        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                realm.beginTransaction();
-                central.setBtSos(true);
-                realm.commitTransaction();
-                main.activateEmergency(central.getNumero());
-            }
+        builder.setPositiveButton("Aceptar", (dialog, which) -> {
+            realm.beginTransaction();
+            central.setBtSos(true);
+            realm.commitTransaction();
+            main.activateEmergency(central.getNumero());
         });
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+        builder.setNegativeButton("Cancelar", (dialog, which) -> {
 
-            }
         });
         builder.setMessage("El modo Alarma debe estar previamente configurado en la Llave GSM para activar la alarma correctamente!");
         return builder.create();

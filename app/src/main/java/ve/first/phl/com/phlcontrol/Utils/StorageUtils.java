@@ -21,4 +21,16 @@ public class StorageUtils {
     public static int getCentralPage(Context context){
         return getSharedPref(context).getInt("central_page",0);
     }
+
+    public static void saveNoShow(Context context,boolean show)
+    {
+        SharedPreferences pref = getSharedPref(context);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean("show",show);
+        editor.commit();
+    }
+
+    public static boolean notToShowDialgo(Context context){
+        return getSharedPref(context).getBoolean("show",false);
+    }
 }

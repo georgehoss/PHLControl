@@ -6,7 +6,7 @@
     tools:context=".MainActivity" >
 
     <item
-        android:id="@+id/nuevo"
+        android:id="@+id/m_nuevo"
         android:title="@string/agregar"
         android:icon="@drawable/addcontact"
         android:orderInCategory="100"
@@ -14,15 +14,27 @@
         />
 
     <item
-        android:id="@+id/alarma"
+        android:id="@+id/m_alarma"
         android:title="@string/boton_de_p_nico"
         android:orderInCategory="100"
         app:showAsAction="never"
         />
 
     <item
-        android:id="@+id/Calificar"
+        android:id="@+id/m_calificar"
         android:title="@string/calificar_aplicaci_n"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/m_compartir"
+        android:title="Compartir"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/m_descargar"
+        android:title="Descargar"
         android:orderInCategory="100"
         app:showAsAction="never"
         />

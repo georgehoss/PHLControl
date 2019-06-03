@@ -33,17 +33,17 @@ public class SplashActivity extends AppCompatActivity {
     private Realm realm;
     String[] permissions= new String[]{
             Manifest.permission.READ_CONTACTS,
-            Manifest.permission.CALL_PHONE,
-            Manifest.permission.SEND_SMS};
+            Manifest.permission.CALL_PHONE};
+           // Manifest.permission.SEND_SMS};
 
-    @BindView(R.id.bt_acept) Button mBtAccept;
+    @BindView(R.id.bt_accept) Button mBtAccept;
     @BindView(R.id.bt_info) Button mBtInfo;
     @BindView(R.id.bt_permisions) Button mBtContinue;
     @BindView(R.id.tv_deber) TextView mTvDeber;
     @BindView(R.id.tv_info) TextView mTvInfo;
 
 
-    @OnClick (R.id.bt_acept) void onAccept(){
+    @OnClick (R.id.bt_accept) void onAccept(){
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             mBtAccept.setVisibility(View.GONE);

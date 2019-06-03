@@ -6,7 +6,7 @@
     <string name="Cancelar">Cancelar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="footer">www.phl.com.ve\n Tecnologia PHL ©2018</string>
+    <string name="footer">www.phl.com.ve\n Tecnologia PHL ©2019</string>
     <string name="editar">Editar</string>
     <string name="cambiar">Lista</string>
     <string name="llamar">Llamar</string>
@@ -30,6 +30,9 @@
     <string name="seleccionar_del_directorio">Seleccionar Del Directorio</string>
     <string name="n_mero_llave_gsm">Número Llave GSM</string>
     <string name="presiona_continuar">Presiona Continuar para otorgar los permisos que PHL Control necesita para controlar la Llave GSM</string>
+    <string name="aviso_importante">Aviso Importante</string>
+    <string name="por_pol_ticas_de_google_play_el_env_o_de_mensajes_ya_no_puede_ser_autom_tico_nal_presionar_el_bot_n_te_redirige_a_la_aplicacion_de_mensajes_para_que_procedas_a_enviarlo_npedimos_disculpas_por_las_molestias_causadas">Por políticas de Google play, el envío de mensajes ya no puede ser automático. Al presionar el botón te redirige a la aplicacion de mensajes para que procedas a enviarlo (Solo dispositivos compatibles). Pedimos disculpas por las molestias causadas.\nPuedes descargar la version con mensajes automáticos presionando el botón descargar</string>
+    <string name="no_volver_a_mostrar">No volver a mostrar</string>
 
 
 </resources>

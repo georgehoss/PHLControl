@@ -29,16 +29,16 @@
                         >
                         <ImageView
                             android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_height="65dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/phl_logo"
+                            android:background="@drawable/phl_logo"
                             android:id="@+id/iv_logo"
                             tools:ignore="ContentDescription" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_margin="20dp"
                             android:orientation="vertical"
                             android:gravity="center"
                             >
