@@ -1,81 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/phl_logo"
-        android:layout_gravity="center"
-        tools:ignore="ContentDescription" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/blanco"
-        android:textSize="22sp"
-        android:text="@string/aviso_importante"
-        android:textStyle="bold"
-        />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/blanco"
-        android:textStyle="bold"
-        android:textSize="19sp"
-        android:padding="5dp"
-        android:layout_margin="10dp"
-        android:text="@string/por_pol_ticas_de_google_play_el_env_o_de_mensajes_ya_no_puede_ser_autom_tico_nal_presionar_el_bot_n_te_redirige_a_la_aplicacion_de_mensajes_para_que_procedas_a_enviarlo_npedimos_disculpas_por_las_molestias_causadas"
-        />
-
-    <CheckBox
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/no_volver_a_mostrar"
-        android:textSize="18sp"
-        android:textColor="@color/blanco"
-        android:id="@+id/cb_no_mostrar"
-        />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/phl_logo"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription" />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descargar"
-            android:id="@+id/bt_download"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:gravity="center"
+            android:textColor="@color/blanco"
+            android:textSize="22sp"
+            android:text="@string/aviso_importante"
+            android:textStyle="bold"
             />
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
+
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Aceptar"
-            android:id="@+id/bt_accept"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:padding="5dp"
             android:layout_margin="10dp"
-            android:layout_gravity="center"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="@string/por_pol_ticas_de_google_play_el_env_o_de_mensajes_ya_no_puede_ser_autom_tico_nal_presionar_el_bot_n_te_redirige_a_la_aplicacion_de_mensajes_para_que_procedas_a_enviarlo_npedimos_disculpas_por_las_molestias_causadas"
             />
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_volver_a_mostrar"
+            android:textSize="18sp"
+            android:textColor="@color/blanco"
+            android:id="@+id/cb_no_mostrar"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Descargar"
+                android:id="@+id/bt_download"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                style="@style/Widget.AppCompat.Button.Colored"
+                />
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/Aceptar"
+                android:id="@+id/bt_accept"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                style="@style/Widget.AppCompat.Button.Colored"
+                />
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

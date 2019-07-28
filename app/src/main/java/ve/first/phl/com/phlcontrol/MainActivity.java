@@ -5,11 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
@@ -26,7 +22,7 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
-
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int MULTIPLE_PERMISSIONS = 10; // code you want.
     String[] permissions= new String[]{
             Manifest.permission.READ_CONTACTS,
-            Manifest.permission.CALL_PHONE,
+            Manifest.permission.CALL_PHONE
+           // Manifest.permission.SEND_SMS
             };
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
         //setVolumeControlStream(AudioManager.STREAM_MUSIC);
         //crearSonido();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new ControlFragment()).commit();
-       // MobileAds.initialize(this,"ca-app-pub-2647255604635326~7118853954");
+        MobileAds.initialize(this,"ca-app-pub-2647255604635326~1427373068");
 
     }
 
     private void vibrar(int timev) {
-        //final Vibrator vibe = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-            //vibe.vibrate(200);
+        final Vibrator vibe = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+            vibe.vibrate(200);
     }
 
     public void showWarningDialog(String number,String msg){
@@ -95,12 +92,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendSms(String number,String msj){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) // At least KitKat
-        {
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setData(Uri.parse("smsto:"));
-            intent.putExtra("sms_body", msj);
+        ///*
+
             try {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", number, null));
+                intent.putExtra("sms_body",msj);
                 startActivity(intent);
             }
             catch (Exception e)
@@ -108,61 +104,61 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Tu dispositivo no es compatible, te invitamos a descargar la version de mensajes automáticos", Toast.LENGTH_LONG).show();
                 showWarningDialog(null,null);
             }
-        }
-        else // For early versions, do what worked for you before.
-        {
-            Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
-            smsIntent.setType("vnd.android-dir/mms-sms");
-            smsIntent.putExtra("address",number);
-            smsIntent.putExtra("sms_body",msj);
-            startActivity(smsIntent);
-        }
+        //*/
+        /*SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(number, null, msj, null, null);
+        //*/
     }
 
 
     public void abrirSecundario(String numero) {
-        //SmsManager sms2 = SmsManager.getDefault();
         String msj="#puerta";
         if (!TextUtils.isEmpty(numero)) {
             vibrar(100);
-            //if (StorageUtils.notToShowDialgo(this))
-            if (StorageUtils.notToShowDialgo(this))
+
+            //sendSms(numero,msj);
+
+            if (!StorageUtils.notToShowDialgo(this))
                 showWarningDialog(numero,msj);
             else
-                showWarningDialog(numero,msj);
+                sendSms(numero,msj);
+            //*/
 
-            //sms2.sendTextMessage(numero, null, "#puerta", null, null);
         }
 
     }
 
     public void abrirPrincipal(String numero) {
-        //SmsManager sms = SmsManager.getDefault();
         String msj="#Abrir";
 
         if (!TextUtils.isEmpty(numero)) {
             vibrar(100);
-            if (StorageUtils.notToShowDialgo(this))
-                sendSms(numero,msj);
-            else
-                showWarningDialog(numero,msj);
+            //sendSms(numero,msj);
 
-            //sms.sendTextMessage(numero, null, "#abrir", null, null);
+            if (!StorageUtils.notToShowDialgo(this))
+                showWarningDialog(numero,msj);
+            else
+                sendSms(numero,msj);
+            //*/
+
         }
 
     }
 
     public void activateAlarm(String numero) {
-        //SmsManager sms = SmsManager.getDefault();
+
         String msj= "#ALARM";
 
         if (!TextUtils.isEmpty(numero)) {
             vibrar(50);
-            //sms.sendTextMessage(numero, null, "#ALARM", null, null);
-            if (StorageUtils.notToShowDialgo(this))
-                sendSms(numero,msj);
-            else
+            //sendSms(numero,msj);
+
+            if (!StorageUtils.notToShowDialgo(this))
                 showWarningDialog(numero,msj);
+            else
+                sendSms(numero,msj);
+            //*/
+
 
             vibrar(50);
         }
@@ -170,16 +166,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void activateEmergency(String numero) {
-        //SmsManager sms = SmsManager.getDefault();
         String msj = "#APERTURA";
 
         if (!TextUtils.isEmpty(numero)) {
             vibrar(50);
-            //sms.sendTextMessage(numero, null, "#APERTURA", null, null);
-            if (StorageUtils.notToShowDialgo(this))
-                sendSms(numero,msj);
-            else
+            //sendSms(numero,msj);
+
+            if (!StorageUtils.notToShowDialgo(this))
                 showWarningDialog(numero,msj);
+            else
+                sendSms(numero,msj);
+            //*/
 
             vibrar(50);
         }
@@ -188,8 +185,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void llamadaPrincipal(String numero) {
         if (!TextUtils.isEmpty(numero)) {
-            //vibrar(100);
-            //soundPool.play(soundID,1,1,0,0,1);
+            vibrar(100);
             Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + numero));
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 return;
@@ -208,7 +204,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        //crearSonido();
         checkPermissions();
     }
 
@@ -239,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
                 Uri uriUrl = Uri.parse("https://play.google.com/store/apps/details?id=ve.first.phl.com.phlcontrol");
                 Intent intent2 = new Intent(Intent.ACTION_VIEW, uriUrl);
                 startActivity(intent2);
+                break;
             case R.id.m_compartir:
                 Intent share = new Intent(android.content.Intent.ACTION_SEND);
                 share.setType("text/plain");

@@ -14,8 +14,8 @@ android {
         applicationId "ve.first.phl.com.phlcontrol"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 13
-        versionName "3.3"
+        versionCode 18 //99
+        versionName "3.7"//"Beta Version"
         signingConfig signingConfigs.config
     }
     buildTypes {
@@ -53,7 +53,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
     //Ads
-   // implementation 'com.google.android.gms:play-services-ads:17.2.1'
+    implementation 'com.google.android.gms:play-services-ads:17.2.1'
 
 
 }

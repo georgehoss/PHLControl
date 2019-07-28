@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
     String[] permissions= new String[]{
             Manifest.permission.READ_CONTACTS,
             Manifest.permission.CALL_PHONE};
-           // Manifest.permission.SEND_SMS};
+            //Manifest.permission.SEND_SMS};
 
     @BindView(R.id.bt_accept) Button mBtAccept;
     @BindView(R.id.bt_info) Button mBtInfo;

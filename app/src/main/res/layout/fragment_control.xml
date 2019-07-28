@@ -14,6 +14,16 @@
         android:orientation="vertical"
         >
 
+        <com.google.android.gms.ads.AdView
+            android:layout_margin="5dp"
+            android:id="@+id/adView"
+            android:layout_gravity="center"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-2647255604635326/9237526420"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.google.android.gms.ads.AdView>
+
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -42,15 +52,7 @@
             android:id="@+id/tv_footer"
             />
 
-        <!--com.google.android.gms.ads.AdView
-            android:layout_marginBottom="20dp"
-            android:id="@+id/AdView"
-            android:layout_gravity="center"
-            ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-2647255604635326/3362499820"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </com.google.android.gms.ads.AdView!-->
+
 
 
     </LinearLayout>

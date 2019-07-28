@@ -17,6 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -40,6 +43,7 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
     private CentralHorizontalAdapter mAdapter;
     private RealmResults<Central> mCentrals;
     private MainActivity main;
+    private AdView mAdView;
 
 
     public ControlFragment() {
@@ -72,13 +76,16 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
         ButterKnife.bind(this,v);
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(mRvCentrals);
+        mAdView = v.findViewById(R.id.adView);
+
         return v;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         main = (MainActivity) getActivity();
         mCentrals = realm.where(Central.class).findAll();
         if (mCentrals.size()==0 && getActivity()!=null) {
@@ -141,15 +148,14 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
         }
         else
             abrirPrincipal();
-                            */
+        //                    */
 
     }
 
     @Override
     public void onOpen2(Central central) {
         abrirSecundario();
-            /*
-        if (central.getTimebt2()!=null && !central.getTimebt2().isEmpty())
+        /*if (central.getTimebt2()!=null && !central.getTimebt2().isEmpty())
         {
 
             if (Utils.isUpToDate(getActivity(),central.getTimebt2(),5))
@@ -159,7 +165,7 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
               }
         else
             abrirSecundario();
-              */
+              //*/
 
 
     }
@@ -190,7 +196,7 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
             realm.copyToRealmOrUpdate(central);
            // mCentrals = realm.where(Central.class).findAll();
         });
-        //Toast.makeText(main, "Activando 1: "+getCentral().getNombre()+". Por favor espere 5 segundos..", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(main, "Activando 1: "+getCentral().getNombre()+". Por favor espere 5 segundos..", Toast.LENGTH_SHORT).show();
     }
 
     private void abrirSecundario(){
