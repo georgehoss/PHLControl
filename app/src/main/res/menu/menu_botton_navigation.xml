@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_list"
+        android:title="@string/control_list"
+        android:icon="@drawable/ic_control_list" />
+    <item
+        android:id="@+id/action_remote"
+        android:title="@string/control"
+        android:icon="@drawable/ic_main_control" />
+    <item
+        android:id="@+id/action_add"
+        android:title="@string/add_"
+        android:icon="@drawable/ic_add_control" />
+</menu>

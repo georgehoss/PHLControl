@@ -9,13 +9,13 @@ android {
             storePassword 'quidditch1'
         }
     }
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "ve.first.phl.com.phlcontrol"
         minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 18 //99
-        versionName "3.7"//"Beta Version"
+        targetSdkVersion 29
+        versionCode 21 //99
+        versionName "4.0"//"Beta Version"
         signingConfig signingConfigs.config
     }
     buildTypes {

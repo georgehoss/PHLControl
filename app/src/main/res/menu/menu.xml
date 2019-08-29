@@ -5,24 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity" >
 
-    <item
-        android:id="@+id/m_nuevo"
-        android:title="@string/agregar"
-        android:icon="@drawable/addcontact"
-        android:orderInCategory="100"
-        app:showAsAction="ifRoom"
-        />
+
 
     <item
         android:id="@+id/m_alarma"
-        android:title="@string/boton_de_p_nico"
+        android:title="@string/panic_button"
         android:orderInCategory="100"
         app:showAsAction="never"
         />
 
     <item
         android:id="@+id/m_calificar"
-        android:title="@string/calificar_aplicaci_n"
+        android:title="@string/qualify_app"
         android:orderInCategory="100"
         app:showAsAction="never"
         />
@@ -35,6 +29,14 @@
     <item
         android:id="@+id/m_descargar"
         android:title="Descargar"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/m_nuevo"
+        android:title="@string/add_"
+        android:icon="@drawable/addcontact"
         android:orderInCategory="100"
         app:showAsAction="never"
         />

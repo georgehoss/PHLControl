@@ -3,7 +3,6 @@ package ve.first.phl.com.phlcontrol.Control;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,12 +14,9 @@ import android.support.v7.widget.SnapHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -110,6 +106,7 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
             mRvCentrals.smoothScrollToPosition(StorageUtils.getCentralPage(getContext()));
     }
 
+    /*
     @Override
     public void onListClick() {
         main.getSupportFragmentManager().beginTransaction().replace(R.id.container, new ControlListFragment()).addToBackStack(null).commit();
@@ -121,6 +118,7 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
         intent.putExtra("new","new");
         startActivity(intent);
     }
+    */
 
     @Override
     public void onEditClick(String central) {
@@ -131,7 +129,7 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
 
     @Override
     public void onCall(Central central) {
-        main.llamadaPrincipal(getCentral().getNumero());
+        main.callToPrincipal(getCentral().getNumero());
     }
 
     @Override
@@ -142,12 +140,12 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
         {
 
             if (Utils.isUpToDate(getActivity(),central.getTimebt1(),5))
-                abrirPrincipal();
+                openPrincipal();
             else
                 Toast.makeText(getActivity(), "Espere 5 segundos para volver activar.", Toast.LENGTH_SHORT).show();
         }
         else
-            abrirPrincipal();
+            openPrincipal();
         //                    */
 
     }
@@ -159,12 +157,12 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
         {
 
             if (Utils.isUpToDate(getActivity(),central.getTimebt2(),5))
-                abrirSecundario();
+                openSecundary();
             else
                 Toast.makeText(getActivity(), "Espere 5 segundos para volver activar.", Toast.LENGTH_SHORT).show();
               }
         else
-            abrirSecundario();
+            openSecundary();
               //*/
 
 
@@ -189,7 +187,7 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
     }
 
     private void abrirPrincipal(){
-        main.abrirPrincipal(getCentral().getNumero());
+        main.openPrincipal(getCentral().getNumero());
         realm.executeTransaction(realm -> {
             Central central = getCentral();
             central.setTimebt1(Utils.getDateString());
@@ -200,7 +198,7 @@ public class ControlFragment extends Fragment implements CentralHorizontalAdapte
     }
 
     private void abrirSecundario(){
-        main.abrirSecundario(getCentral().getNumero());
+        main.openSecundary(getCentral().getNumero());
         realm.executeTransaction(realm -> {
             Central central = getCentral();
             central.setTimebt2(Utils.getDateString());

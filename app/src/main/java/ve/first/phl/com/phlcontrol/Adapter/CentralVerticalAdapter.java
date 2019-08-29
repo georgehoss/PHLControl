@@ -7,9 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -50,51 +49,20 @@ public class CentralVerticalAdapter extends RecyclerView.Adapter<CentralVertical
         final int pos = position;
 
 
-        holder.mCvMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onMainClick(pos);
-            }
-        });
+        holder.mCvMain.setOnClickListener(v -> onClick.onMainClick(pos));
 
-        holder.mBtEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onEditClick(numero);
-            }
-        });
+        holder.mBtEdit.setOnClickListener(v -> onClick.onEditClick(numero));
 
-        holder.mBtCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onCall(pos);
-            }
+        holder.mBtCall.setOnClickListener(v -> onClick.onCall(pos));
+        holder.mBtPrincipal.setOnClickListener(v -> onClick.onOpen(pos));
+        holder.mBtSecond.setOnClickListener(v -> onClick.onOpen2(pos));
+        holder.mCvMain.setOnLongClickListener(v -> {
+            onClick.onAlarm(pos);
+            return false;
         });
-        holder.mBtPrincipal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onOpen(pos);
-            }
-        });
-        holder.mBtSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onOpen2(pos);
-            }
-        });
-        holder.mIvLogo.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                onClick.onAlarm(pos);
-                return false;
-            }
-        });
-        holder.mBtPrincipal.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                onClick.onEmergency(pos);
-                return false;
-            }
+        holder.mBtPrincipal.setOnLongClickListener(v -> {
+            onClick.onEmergency(pos);
+            return false;
         });
 
         if (central.isBtSec())
@@ -117,10 +85,9 @@ public class CentralVerticalAdapter extends RecyclerView.Adapter<CentralVertical
         @BindView(R.id.tv_number) TextView mTvNumber;
         @BindView(R.id.bt_edit) ImageButton mBtEdit;
         @BindView(R.id.bt_call) ImageButton mBtCall;
-        @BindView(R.id.bt_1) Button mBtPrincipal;
-        @BindView(R.id.bt_2) Button mBtSecond;
+        @BindView(R.id.bt_1) ImageButton mBtPrincipal;
+        @BindView(R.id.bt_2) ImageButton mBtSecond;
         @BindView(R.id.cv_main) CardView mCvMain;
-        @BindView(R.id.iv_logo) ImageView mIvLogo;
 
         CentralViewHolder(View itemView) {
             super(itemView);

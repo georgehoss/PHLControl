@@ -8,46 +8,66 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="5dp"
             android:orientation="vertical"
             >
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 >
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
+                    android:gravity="center"
                     >
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bt_edit"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:drawableRight="@drawable/ic_edit_blue"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="10dp"
+                        android:drawablePadding="10dp"
+                        android:layout_gravity="end"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/ic_edit"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="10dp" />
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        >
+                        android:layout_height="wrap_content">
+
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="65dp"
                             android:layout_gravity="center"
+                            android:layout_margin="20dp"
                             android:background="@drawable/phl_logo"
                             android:id="@+id/iv_logo"
                             tools:ignore="ContentDescription" />
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:paddingEnd="30dp"
+                            android:paddingRight="30dp"
                             android:orientation="vertical"
                             android:gravity="center"
-                            >
+                            tools:ignore="RtlSymmetry">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="20sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/colorPrimaryLight"
+                                android:textColor="@color/colorPrimary"
                                 android:id="@+id/tv_title"
                                 />
                             <TextView
@@ -60,44 +80,9 @@
 
 
                         </LinearLayout>
-
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/bt_list"
-                            android:text="@string/cambiar"
-                            android:theme="@style/AppTheme.Button"
-                            android:drawableLeft="@drawable/list_user"
-                            tools:ignore="ButtonStyle" />
 
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/bt_edit"
-                            android:drawableLeft="@drawable/edit_user"
-                            android:text="@string/editar"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            style="@style/Widget.AppCompat.Button.Colored"
-                            />
-
-                        <Button
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/bt_add"
-                            android:drawableLeft="@drawable/new_user"
-                            android:text="@string/nuevo"
-                            style="@style/Widget.AppCompat.Button.Colored"
-                            />
-                    </LinearLayout>
-                </LinearLayout>
+                </RelativeLayout>
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
@@ -105,67 +90,152 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    >
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/bt_call"
-                        android:drawableLeft="@drawable/callphone"
-                        android:drawablePadding="10dp"
-                        android:padding="20dp"
-                        android:text="@string/llamar"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:theme="@style/AppTheme.Button"
-                        tools:ignore="ButtonStyle" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/presione_para_activar"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:id="@+id/bt_principal"
-                        android:drawableLeft="@drawable/garage_open"
-                        android:drawablePadding="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="15dp"
-                        android:padding="20dp"
-                        android:layout_gravity="right"
-                        android:text="@string/principal"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        />
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/bt_second"
-                        android:drawableLeft="@drawable/remotewh"
-                        android:drawablePadding="10dp"
-                        android:padding="20dp"
-                        android:text="@string/secundario"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        style="@style/Widget.AppCompat.Button.Colored"
-                        />
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
 
 
-                </LinearLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:padding="10dp"
+                      >
+
+
+                      <LinearLayout
+                          android:layout_width="200dp"
+                          android:layout_height="280dp"
+                          android:background="@drawable/ic_control_2"
+                          android:layout_marginTop="20dp"
+                          android:layout_marginBottom="20dp"
+                          android:layout_gravity="center"
+                          android:orientation="vertical"
+                          android:gravity="center"
+                          >
+
+                          <LinearLayout
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:orientation="horizontal"
+                              android:layout_marginTop="10dp"
+                              android:gravity="center"
+                              >
+
+                              <LinearLayout
+                                  android:layout_width="0dp"
+                                  android:layout_weight="1"
+                                  android:layout_height="wrap_content"
+                                  android:gravity="right"
+                                  android:layout_marginRight="4dp"
+                                  >
+                                  <ImageButton
+                                      android:layout_width="68dp"
+                                      android:layout_height="70dp"
+                                      android:background="@drawable/ic_bt_control_2"
+                                      android:layout_marginTop="20dp"
+                                      android:layout_gravity="center"
+                                      android:layout_margin="2dp"
+                                      android:id="@+id/ib_2"
+                                      />
+
+                              </LinearLayout>
+                              <LinearLayout
+                                  android:layout_width="0dp"
+                                  android:layout_weight="1"
+                                  android:gravity="left"
+                                  android:layout_height="wrap_content">
+                                  <ImageButton
+                                      android:layout_margin="2dp"
+                                      android:layout_width="68dp"
+                                      android:layout_height="70dp"
+                                      android:background="@drawable/ic_bt_door_2"
+                                      android:layout_gravity="center"
+                                      android:id="@+id/ib_1"
+                                      />
+                              </LinearLayout>
+
+
+
+
+                          </LinearLayout>
+
+                          <ImageButton
+                              android:layout_width="140dp"
+                              android:layout_height="120dp"
+                              android:layout_margin="5dp"
+                              android:background="@drawable/ic_bt_call_2"
+                              android:layout_gravity="center"
+                              android:id="@+id/ib_call"
+
+                              />
+
+
+                      </LinearLayout>
+
+
+                      <Button
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          android:layout_gravity="center"
+                          android:id="@+id/bt_call"
+                          android:text="@string/call"
+                          style="@style/AppTheme.Button"
+                          android:drawableLeft="@drawable/callphone"
+                          android:drawablePadding="5dp"
+                          android:paddingEnd="20dp"
+                          android:paddingStart="20dp"
+                          tools:ignore="ButtonStyle"
+                          android:drawableStart="@drawable/callphone" />
+
+
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:gravity="center"
+                          >
+
+
+                          <Button
+                              android:layout_width="0dp"
+                              android:layout_weight="1"
+                              android:layout_height="wrap_content"
+                              android:layout_gravity="center"
+                              android:id="@+id/bt_second"
+                              android:drawableLeft="@drawable/ic_remote"
+                              android:text="@string/secondary"
+                              android:drawablePadding="5dp"
+                              tools:ignore="ButtonStyle,SmallSp"
+                              android:theme="@style/AppTheme.Button"
+                              android:drawableStart="@drawable/ic_remote" />
+
+                          <Button
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:id="@+id/bt_principal"
+                              android:drawableLeft="@drawable/ic_door"
+                              android:text="@string/principal"
+                              android:layout_marginLeft="5dp"
+                              android:layout_marginRight="5dp"
+                              android:drawablePadding="5dp"
+                              android:theme="@style/AppTheme.Button"
+                              tools:ignore="ButtonStyle,SmallSp"
+                              android:drawableStart="@drawable/ic_door" />
+                      </LinearLayout>
+
+                  </LinearLayout>
+
+              </RelativeLayout>
+
+
             </android.support.v7.widget.CardView>
+
+
+
 
         </LinearLayout>
 </ScrollView>

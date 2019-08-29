@@ -51,7 +51,7 @@ public class SplashActivity extends AppCompatActivity {
             if (!checkPermission()) {
                 mBtContinue.setVisibility(View.VISIBLE);
                 mTvDeber.setVisibility(View.GONE);
-                mTvInfo.setText(getString(R.string.presiona_continuar));
+                mTvInfo.setText(getString(R.string.tap_to_continue));
             }
             else
             {

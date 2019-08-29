@@ -1,38 +1,37 @@
 <resources>
     <string name="app_name">PHL Control</string>
-    <string name="Guardar">Guardar</string>
-    <string name="Btnguardar">Guardar</string>
-    <string name="Aceptar">Aceptar</string>
-    <string name="Cancelar">Cancelar</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="footer">www.phl.com.ve\n Tecnologia PHL ©2019</string>
-    <string name="editar">Editar</string>
-    <string name="cambiar">Lista</string>
-    <string name="llamar">Llamar</string>
-    <string name="principal">P. Principal</string>
-    <string name="secundario">P. Secundario</string>
-    <string name="m_s_informaci_n">Más Información</string>
-    <string name="mejorando_t_calidad_de_vida">¡Mejorando tú calidad de vida!</string>
-    <string name="informacion">PHL Control es un complemento de la Llave GSM de Tecnología PHL, con la cual puedes controlar con cualquier teléfono la apertura de puertas y portones eléctricos, el encendido de luces, bombas, alarmas, energizadores de cercos eléctricos, etc.</string>
-    <string name="deber">Debes tener instalada una Llave GSM para que PHL Control funcione correctamente </string>
-    <string name="continuar">Continuar</string>
-    <string name="agregar_editar_nuevo_n_mero">Configurar PHL Control</string>
-    <string name="nombre_llave_gsm_ej_urb_el_para_so">Nombre Llave GSM: Ej. Urb. El Paraíso</string>
-    <string name="nuevo">Nuevo</string>
-    <string name="agregar">Agregar</string>
-    <string name="emergencia">Emergencia</string>
-    <string name="calificar_aplicaci_n">Calificar Aplicación</string>
-    <string name="boton_de_p_nico">Boton de Pánico</string>
-    <string name="eliminar">Eliminar</string>
-    <string name="presione_para_activar">Presione para Activar:</string>
-    <string name="configurar_numer">Para configurar tu dispositivo como control es necesario que proporciones el número de teléfono de la Llave GSM, si esta almacenado en tus contactos puedes seleccionar el contacto del directorio.</string>
-    <string name="seleccionar_del_directorio">Seleccionar Del Directorio</string>
-    <string name="n_mero_llave_gsm">Número Llave GSM</string>
-    <string name="presiona_continuar">Presiona Continuar para otorgar los permisos que PHL Control necesita para controlar la Llave GSM</string>
-    <string name="aviso_importante">Aviso Importante</string>
-    <string name="por_pol_ticas_de_google_play_el_env_o_de_mensajes_ya_no_puede_ser_autom_tico_nal_presionar_el_bot_n_te_redirige_a_la_aplicacion_de_mensajes_para_que_procedas_a_enviarlo_npedimos_disculpas_por_las_molestias_causadas">Por políticas de Google play, el envío de mensajes ya no puede ser automático. Al presionar el botón te redirige a la aplicacion de mensajes para que procedas a enviarlo (Solo dispositivos compatibles). Pedimos disculpas por las molestias causadas.\nPuedes descargar la version con mensajes automáticos presionando el botón descargar</string>
-    <string name="no_volver_a_mostrar">No volver a mostrar</string>
+    <string name="save">Save</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="footer">www.phl.com.ve</string>
+    <string name="edit">Edit</string>
+    <string name="list">List</string>
+    <string name="call">Call</string>
+    <string name="principal">Principal D.</string>
+    <string name="secondary">Secondary D.</string>
+    <string name="more_info">More Info…</string>
+    <string name="improving_life">¡Improving your life quality!</string>
+    <string name="information">PHL Control is the complement of Micro GSM Key developed by PHL Technology, with the equipment installed and this app you can control and supervise automatic gates and doors, lights, water pumps, alarms, motors etc.</string>
+    <string name="you_must_have">Remember, you must have installed a GSM Key in order to use PHL Control correctly</string>
+    <string name="to_continue">Continue</string>
+    <string name="config_phl_control">Configure PHL Control</string>
+    <string name="gsm_key_name">Name: Ex. Home</string>
+    <string name="new_key">New</string>
+    <string name="add_">Add</string>
+    <string name="emergency">Emergency</string>
+    <string name="qualify_app">Rate our app</string>
+    <string name="panic_button">Panic Button</string>
+    <string name="delete">Delete</string>
+    <string name="tap_to_activate">Tap to activate:</string>
+    <string name="number_configuration">You have to know the GSM Key number in order to configure this app correctly, you can pick the number from the directory.</string>
+    <string name="choose_from_directory">Pick from directory</string>
+    <string name="gsm_number">GSM Key number</string>
+    <string name="tap_to_continue">Tap continue and accept the permission of this app to configure PHL Control correctly</string>
+    <string name="important_advise">Important Advise</string>
+    <string name="google_politics">Google play\'s politics does not allow automatic sms. When you push the buttons you will be redirected to sms default application. We apologize to you for any inconvenient that this may cause. </string>
+    <string name="not_show_again">Don\'t display again</string>
+    <string name="control_list">List</string>
+    <string name="control">Control</string>
 
 
 </resources>

@@ -8,10 +8,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.realm.Realm;
 import io.realm.RealmResults;
-import ve.first.phl.com.phlcontrol.Adapter.CentralHorizontalAdapter;
 import ve.first.phl.com.phlcontrol.Adapter.CentralVerticalAdapter;
 import ve.first.phl.com.phlcontrol.AddActivity;
 import ve.first.phl.com.phlcontrol.MainActivity;
@@ -57,7 +55,7 @@ public class ControlListFragment extends Fragment implements CentralVerticalAdap
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_control, container, false);
+        View v = inflater.inflate(R.layout.fragment_list_control, container, false);
         Realm.init(getActivity());
         realm = Realm.getDefaultInstance();
         ButterKnife.bind(this,v);
@@ -74,14 +72,16 @@ public class ControlListFragment extends Fragment implements CentralVerticalAdap
             getActivity().finish();
         }
         mAdapter = new CentralVerticalAdapter(mCentrals,getContext(),this);
-        mRvCentrals.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+        mRvCentrals.setLayoutManager(gridLayoutManager);
         mRvCentrals.setAdapter(mAdapter);
     }
 
     @Override
     public void onMainClick(int position) {
         StorageUtils.saveCentralPage(getActivity(),position);
-        main.onBackPressed();
+        startActivity(new Intent(getActivity(),MainActivity.class));
+        main.finish();
     }
 
     @Override
@@ -93,7 +93,7 @@ public class ControlListFragment extends Fragment implements CentralVerticalAdap
 
     @Override
     public void onCall(int position) {
-        main.llamadaPrincipal(getCentral(position).getNumero());
+        main.callToPrincipal(getCentral(position).getNumero());
     }
 
     @Override
@@ -146,7 +146,7 @@ public class ControlListFragment extends Fragment implements CentralVerticalAdap
     }
 
     private void abrirPrincipal(final Central central){
-        main.abrirPrincipal(central.getNumero());
+        main.openPrincipal(central.getNumero());
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -159,7 +159,7 @@ public class ControlListFragment extends Fragment implements CentralVerticalAdap
     }
 
     private void abrirSecundario(final Central central){
-        main.abrirSecundario(central.getNumero());
+        main.openSecundary(central.getNumero());
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {

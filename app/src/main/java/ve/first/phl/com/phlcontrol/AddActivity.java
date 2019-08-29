@@ -52,7 +52,7 @@ public class AddActivity extends AppCompatActivity {
 
     }
 
-    @OnClick (R.id.fb_add) void onSave(){
+    @OnClick (R.id.bt_accept) void onSave(){
         if (validate(mEtNumber.getText().toString(),mEtName.getText().toString()))
             saveNumber(mEtNumber.getText().toString(),mEtName.getText().toString());
     }
@@ -86,7 +86,7 @@ public class AddActivity extends AppCompatActivity {
                    if (central.getNamebt2()!=null && !central.getNamebt2().isEmpty())
                        mEtBt2.setText(central.getNamebt2());
                    else
-                       mEtBt2.setText(getString(R.string.secundario));
+                       mEtBt2.setText(getString(R.string.secondary));
                    mSwBt2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                        @Override
                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

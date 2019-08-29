@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,68 +45,38 @@ public class CentralHorizontalAdapter extends RecyclerView.Adapter<CentralHorizo
     @Override
     public void onBindViewHolder(@NonNull CentralViewHolder holder, int position) {
         final Central central = centrals.get(position);
-        holder.mTvNumber.setText(central.getNumero());
-        holder.mTvTitle.setText(central.getNombre());
-        holder.mBtAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onAddClick();
-            }
-        });
-        final String numero = central.getNumero();
-        holder.mBtEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onEditClick(numero);
-            }
-        });
-        holder.mBtList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onListClick();
-            }
-        });
-        holder.mBtCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onCall(central);
-            }
-        });
-        holder.mBtPrincipal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onOpen(central);
-            }
-        });
-        holder.mBtSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClick.onOpen2(central);
-            }
-        });
-        holder.mIvLogo.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
+        if (central!=null) {
+            holder.mTvNumber.setText(central.getNumero());
+            holder.mTvTitle.setText(central.getNombre());
+            final String number = central.getNumero();
+
+            holder.mBtEdit.setOnClickListener(v -> onClick.onEditClick(number));
+
+
+            holder.mBtCall.setOnClickListener(v -> onClick.onCall(central));
+            holder.mBtPrincipal.setOnClickListener(v -> onClick.onOpen(central));
+            holder.mBtSecond.setOnClickListener(v -> onClick.onOpen2(central));
+            holder.mIbtCall.setOnClickListener(v -> onClick.onCall(central));
+            holder.mIbtPrincipal.setOnClickListener(v -> onClick.onOpen(central));
+            holder.mIbtSecond.setOnClickListener(v -> onClick.onOpen2(central));
+            holder.mIvLogo.setOnLongClickListener(v -> {
                 onClick.onAlarm(central);
                 return false;
-            }
-        });
-        holder.mBtPrincipal.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
+            });
+            holder.mBtPrincipal.setOnLongClickListener(v -> {
                 onClick.onEmergency(central);
                 return false;
-            }
-        });
+            });
 
-        if (central.isBtSec())
-            holder.mBtSecond.setVisibility(View.GONE);
+            if (central.isBtSec())
+                holder.mBtSecond.setVisibility(View.GONE);
 
-        if (central.getNamebt1()!=null && !central.getNamebt1().isEmpty())
-            holder.mBtPrincipal.setText(central.getNamebt1());
+            if (central.getNamebt1() != null && !central.getNamebt1().isEmpty())
+                holder.mBtPrincipal.setText(central.getNamebt1());
 
-        if (central.getNamebt2()!=null && !central.getNamebt2().isEmpty())
-            holder.mBtSecond.setText(central.getNamebt2());
+            if (central.getNamebt2() != null && !central.getNamebt2().isEmpty())
+                holder.mBtSecond.setText(central.getNamebt2());
+        }
     }
 
     @Override
@@ -124,12 +95,13 @@ public class CentralHorizontalAdapter extends RecyclerView.Adapter<CentralHorizo
         @BindView(R.id.iv_logo) ImageView mIvLogo;
         @BindView(R.id.tv_title) TextView mTvTitle;
         @BindView(R.id.tv_number) TextView mTvNumber;
-        @BindView(R.id.bt_list) Button mBtList;
         @BindView(R.id.bt_edit) Button mBtEdit;
-        @BindView(R.id.bt_add) Button mBtAdd;
         @BindView(R.id.bt_call) Button mBtCall;
         @BindView(R.id.bt_principal) Button mBtPrincipal;
         @BindView(R.id.bt_second) Button mBtSecond;
+        @BindView(R.id.ib_call) ImageButton mIbtCall;
+        @BindView(R.id.ib_1) ImageButton mIbtPrincipal;
+        @BindView(R.id.ib_2) ImageButton mIbtSecond;
 
         CentralViewHolder(View itemView) {
             super(itemView);
@@ -138,8 +110,6 @@ public class CentralHorizontalAdapter extends RecyclerView.Adapter<CentralHorizo
     }
 
     public interface OnClick{
-        void onListClick();
-        void onAddClick();
         void onEditClick(String central);
         void onCall(Central central);
         void onOpen(Central central);

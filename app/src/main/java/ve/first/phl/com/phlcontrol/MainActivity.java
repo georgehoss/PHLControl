@@ -2,12 +2,13 @@ package ve.first.phl.com.phlcontrol;
 
 import android.Manifest;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -27,10 +28,14 @@ import com.google.android.gms.ads.MobileAds;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.fabric.sdk.android.Fabric;
 import ve.first.phl.com.phlcontrol.Control.ControlFragment;
+import ve.first.phl.com.phlcontrol.Control.ControlListFragment;
 import ve.first.phl.com.phlcontrol.Utils.StorageUtils;
+
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -41,20 +46,46 @@ public class MainActivity extends AppCompatActivity {
            // Manifest.permission.SEND_SMS
             };
 
+    @BindView(R.id.bottom_navigation) BottomNavigationView mBtNavigation;
+
+
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
-        setContentView(R.layout.actividad_principal);
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         //setVolumeControlStream(AudioManager.STREAM_MUSIC);
         //crearSonido();
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new ControlFragment()).commit();
         MobileAds.initialize(this,"ca-app-pub-2647255604635326~1427373068");
 
+        mBtNavigation.setSelectedItemId(R.id.action_remote);
+
+        mBtNavigation.setOnNavigationItemSelectedListener(menuItem -> {
+
+
+
+            switch (menuItem.getItemId())
+            {
+                case R.id.action_list:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new ControlListFragment()).commit();
+                    return true;
+                case R.id.action_remote:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new ControlFragment()).commit();
+                    return true;
+                case R.id.action_add:
+                    Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                    intent.putExtra("new","new");
+                    startActivity(intent);
+                    break;
+            }
+            return false;
+        });
+
     }
 
-    private void vibrar(int timev) {
+    private void startVibration() {
         final Vibrator vibe = (Vibrator) getSystemService(VIBRATOR_SERVICE);
             vibe.vibrate(200);
     }
@@ -111,10 +142,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void abrirSecundario(String numero) {
+    public void openSecundary(String numero) {
         String msj="#puerta";
         if (!TextUtils.isEmpty(numero)) {
-            vibrar(100);
+            startVibration();
 
             //sendSms(numero,msj);
 
@@ -128,11 +159,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void abrirPrincipal(String numero) {
+    public void openPrincipal(String numero) {
         String msj="#Abrir";
 
         if (!TextUtils.isEmpty(numero)) {
-            vibrar(100);
+            startVibration();
             //sendSms(numero,msj);
 
             if (!StorageUtils.notToShowDialgo(this))
@@ -150,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         String msj= "#ALARM";
 
         if (!TextUtils.isEmpty(numero)) {
-            vibrar(50);
+            startVibration();
             //sendSms(numero,msj);
 
             if (!StorageUtils.notToShowDialgo(this))
@@ -160,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
             //*/
 
 
-            vibrar(50);
+            startVibration();
         }
 
     }
@@ -169,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
         String msj = "#APERTURA";
 
         if (!TextUtils.isEmpty(numero)) {
-            vibrar(50);
+            startVibration();
             //sendSms(numero,msj);
 
             if (!StorageUtils.notToShowDialgo(this))
@@ -178,14 +209,14 @@ public class MainActivity extends AppCompatActivity {
                 sendSms(numero,msj);
             //*/
 
-            vibrar(50);
+            startVibration();
         }
 
     }
 
-    public void llamadaPrincipal(String numero) {
+    public void callToPrincipal(String numero) {
         if (!TextUtils.isEmpty(numero)) {
-            vibrar(100);
+            startVibration();
             Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + numero));
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 return;
@@ -259,10 +290,7 @@ public class MainActivity extends AppCompatActivity {
 
         final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
         builder.setTitle("Alarma o Botón de Pánico");
-        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
+        builder.setPositiveButton("Aceptar", (dialog, which) -> {
         });
         builder.setMessage("Para Activar la Alarma de la Llave GSM mantenga presionado el logo de Tecnología PHL por más de dos segundos." +
                 "\r\nSi mantiene presionado el Botón Principal por más de 2 segundos se activará la Alarma y la salida principal de la LLave GSM al mismo tiempo." +
@@ -270,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
         return builder.create();
     }
 
-    private  boolean checkPermissions() {
+    private void checkPermissions() {
         int result;
         List<String> listPermissionsNeeded = new ArrayList<>();
         for (String p:permissions) {
@@ -281,34 +309,27 @@ public class MainActivity extends AppCompatActivity {
         }
         if (!listPermissionsNeeded.isEmpty()) {
             ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),MULTIPLE_PERMISSIONS );
-            return false;
         }
-        return true;
     }
 
-
+/*
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissionsList[], int[] grantResults) {
-        switch (requestCode) {
-            case MULTIPLE_PERMISSIONS:{
-                if (grantResults.length > 0) {
-                    boolean garanted=true;
-                    int i=0;
-                    for (String per : permissionsList) {
-                        if(grantResults[i] == PackageManager.PERMISSION_DENIED){
-                            garanted=false;
+    public void onRequestPermissionsResult(int requestCode, String permissionsList[], @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0) {
+                int i = 0;
+                for (String ignored : permissionsList) {
+                    if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
 
-                        }
-                        i++;
                     }
-
+                    i++;
                 }
 
             }
         }
     }
-
+*/
 
 
 

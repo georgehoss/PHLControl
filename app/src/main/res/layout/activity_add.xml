@@ -1,191 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/bg_splash"
     tools:context=".AddActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/tv_title"
-        android:layout_below="@id/iv_logo"
-        />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/agregar_editar_nuevo_n_mero"
-        android:textColor="@color/blanco"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:id="@+id/iv_logo"
-        />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       >
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:id="@+id/ll_top"
+           android:gravity="center"
+           >
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@mipmap/ic_launcher"
+               android:id="@+id/tv_title"
+               android:layout_marginTop="30dp"
+               android:layout_marginStart="10dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:layout_marginEnd="10dp"
+               android:layout_marginBottom="10dp"
+               />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_margin="10dp"
-            android:layout_below="@id/tv_title"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/ll_principal"
-                >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               >
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/config_phl_control"
+                   android:textColor="@color/blanco"
+                   android:layout_marginTop="10dp"
+                   android:textSize="20sp"
+                   android:textStyle="bold"
+                   android:gravity="center"
+                   android:id="@+id/iv_logo"
+                   />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/configurar_numer"
-                    android:textColor="@color/blanco"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/tv_info"
-                    />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/number_configuration"
+                   android:textColor="@color/blanco"
+                   android:layout_marginTop="10dp"
+                   android:id="@+id/tv_info"
+                   android:textSize="16sp"
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorAccent"
-                    android:layout_margin="5dp"
-                    />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/bt_contacts"
-                    style="@style/AppTheme.Button"
-                    android:drawableRight="@drawable/phonecontact"
-                    android:text="@string/seleccionar_del_directorio"
-                    />
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/text_input_layout"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="15dp"
-                    android:textColorHint="@color/blanco"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:hint="@string/n_mero_llave_gsm"
-                        android:padding="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:id="@+id/et_numero"
-                        android:textColor="@color/blanco"
-                        />
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/text_input_layout2"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:textColorHint="@color/blanco"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textCapWords"
-                        android:hint="@string/nombre_llave_gsm_ej_urb_el_para_so"
-                        android:padding="10dp"
-                        android:textColor="@color/blanco"
-                        android:maxLength="20"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:id="@+id/et_name"
-                        />
-                </android.support.design.widget.TextInputLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ll_edit"
-                    android:visibility="gone"
-                    android:orientation="vertical">
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:textColorHint="@color/blanco"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textCapWords"
-                            android:hint="Nombre Botón Principal:"
-                            android:padding="10dp"
-                            android:textColor="@color/blanco"
-                            android:maxLength="15"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginLeft="20dp"
-                            android:id="@+id/et_bt1"
-                            />
-                    </android.support.design.widget.TextInputLayout>
-
-                    <Switch
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Deshabilitar botón secundario"
-                        android:padding="10dp"
-                        android:textColor="@color/blanco"
-                        android:layout_gravity="center"
-                        android:id="@+id/sw_bt2"
-                        />
-
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/til_3"
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:textColorHint="@color/blanco"
-                        android:layout_marginBottom="30dp"
-                        android:layout_height="wrap_content">
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textCapWords"
-                            android:hint="Nombre Botón Secundario:"
-                            android:padding="10dp"
-                            android:textColor="@color/blanco"
-                            android:maxLength="15"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginLeft="20dp"
-                            android:id="@+id/et_bt2"
-                            />
-                    </android.support.design.widget.TextInputLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-
-        </ScrollView>
+                   />
 
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fb_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/check"
-        />
+           </LinearLayout>
 
-</RelativeLayout>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:id="@+id/ll_principal"
+           android:layout_below="@+id/ll_top"
+           >
+
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/colorAccent"
+               android:layout_margin="10dp"
+               />
+
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingStart="130dp"
+               android:paddingEnd="20dp"
+               android:layout_marginTop="5dp"
+               android:id="@+id/bt_contacts"
+               android:background="@drawable/ic_bt_s1"
+               android:textColor="@android:color/white"
+               android:drawableRight="@drawable/phonecontact"
+               android:text="@string/choose_from_directory"
+               android:paddingLeft="130dp"
+               android:textSize="11sp"
+               android:paddingRight="20dp"
+               android:layout_marginEnd="30dp"
+               android:layout_marginRight="30dp"
+               tools:ignore="SmallSp" />
+
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/text_input_layout"
+               android:layout_width="match_parent"
+               android:layout_marginTop="15dp"
+               android:textColorHint="@color/blanco"
+               android:layout_height="wrap_content">
+
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="numberDecimal"
+                   android:hint="@string/gsm_number"
+                   android:padding="10dp"
+                   android:layout_marginRight="20dp"
+                   android:layout_marginLeft="20dp"
+                   android:id="@+id/et_numero"
+                   android:textColor="@color/blanco"
+                   />
+           </android.support.design.widget.TextInputLayout>
+
+           <android.support.design.widget.TextInputLayout
+               android:id="@+id/text_input_layout2"
+               android:layout_width="match_parent"
+               android:layout_marginTop="10dp"
+               android:textColorHint="@color/blanco"
+               android:layout_height="wrap_content">
+
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:inputType="textCapWords"
+                   android:hint="@string/gsm_key_name"
+                   android:padding="10dp"
+                   android:textColor="@color/blanco"
+                   android:maxLength="20"
+                   android:layout_marginRight="20dp"
+                   android:layout_marginLeft="20dp"
+                   android:id="@+id/et_name"
+                   />
+           </android.support.design.widget.TextInputLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/ll_edit"
+               android:visibility="gone"
+               android:orientation="vertical">
+               <android.support.design.widget.TextInputLayout
+                   android:layout_width="match_parent"
+                   android:layout_marginTop="10dp"
+                   android:textColorHint="@color/blanco"
+                   android:layout_height="wrap_content">
+
+                   <EditText
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:inputType="textCapWords"
+                       android:hint="Nombre Botón Principal:"
+                       android:padding="10dp"
+                       android:textColor="@color/blanco"
+                       android:maxLength="15"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginLeft="20dp"
+                       android:id="@+id/et_bt1"
+                       />
+               </android.support.design.widget.TextInputLayout>
+
+               <Switch
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Deshabilitar botón secundario"
+                   android:padding="10dp"
+                   android:textColor="@color/blanco"
+                   android:layout_gravity="center"
+                   android:id="@+id/sw_bt2"
+                   />
+
+               <android.support.design.widget.TextInputLayout
+                   android:id="@+id/til_3"
+                   android:layout_width="match_parent"
+                   android:layout_marginTop="10dp"
+                   android:textColorHint="@color/blanco"
+                   android:layout_marginBottom="30dp"
+                   android:layout_height="wrap_content">
+
+                   <EditText
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:inputType="textCapWords"
+                       android:hint="Nombre Botón Secundario:"
+                       android:padding="10dp"
+                       android:textColor="@color/blanco"
+                       android:maxLength="15"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginLeft="20dp"
+                       android:id="@+id/et_bt2"
+                       />
+               </android.support.design.widget.TextInputLayout>
+
+           </LinearLayout>
+       </LinearLayout>
+
+
+       <Button
+           android:id="@+id/bt_accept"
+           android:layout_marginTop="30dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="100dp"
+           android:layout_marginLeft="100dp"
+           android:background="@drawable/ic_bt_right"
+           android:paddingStart="10dp"
+           android:paddingLeft="10dp"
+           android:paddingEnd="120dp"
+           android:paddingRight="120dp"
+           android:text="@string/accept"
+           android:textColor="@android:color/white"
+           tools:ignore="RtlSymmetry" />
+
+
+
+
+   </LinearLayout>
+
+</ScrollView>
